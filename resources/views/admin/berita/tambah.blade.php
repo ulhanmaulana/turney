@@ -27,7 +27,7 @@
           
           <!-- /.col-md-12 -->
           <div class="col-lg-12">
-            <div class="card">
+            <div class="card card-info card-outline">
               <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title"></h3>
@@ -37,25 +37,28 @@
               <div class="card-body">
                 
               <form action="/admin/berita/simpan" method="POST" enctype="multipart/form-data">
-				{{ csrf_field() }}
-				 
-				<div class="form-group">
-				<b>File Gambar</b><br/>
-				<input type="file" name="file_gambar">
-				</div>
-				 
-				<div class="form-group">
-				<b>Judul Berita</b>
-				<input type="input" name="judul_berita" class="form-control">
-				</div>
+        				{{ csrf_field() }}
+        				 
+        				<div class="form-group">
+        				<b>Judul Berita</b>
+        				<input type="input" name="judul_berita" class="form-control" required="">
+        				</div>
 
-				<div class="form-group">
-				<b>Isi Berita</b>
-				<textarea class="form-control" name="isi_berita"></textarea>
-				</div>
-				 
-				<input type="submit" value="Save" class="btn btn-primary">
-			   </form>
+        				<div class="form-group">
+        				<b>Isi Berita</b>
+        				<textarea class="form-control" name="isi_berita" required=""></textarea>
+        				</div>
+
+                <div class="form-group">
+                <b>File Gambar</b><br/>
+                <input type="file" name="file_gambar" required="">
+                </div>
+
+        				<div class="float-sm-right">
+                  <input type="submit" value="Simpan" class="btn btn-primary">  
+                </div> 
+        				
+      			   </form>
 
                 
               </div>

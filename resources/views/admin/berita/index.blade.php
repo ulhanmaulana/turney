@@ -27,40 +27,42 @@
           
           <!-- /.col-md-12 -->
           <div class="col-lg-12">
-            <div class="card">
-              <div class="card-header border-1">
+            <div class="card card-info card-outline">
+              <div class="card-header border-0">
                 <div class="d-flex justify-content-between">
                   <h3 class="card-title"></h3>
-                  <th><a href="/admin/berita/tambah" class="btn btn-md btn-primary"><i class="fa fa-plus"></i> TAMBAH</a></th>
+                  <th><a href="/admin/berita/tambah" class="btn btn-sm btn-success"><i class="fas fa-plus-square"></i> TAMBAH</a></th>
                 </div>
               </div>
               <div class="card-body">
                 
-                <table class="table table-hover table-striped">
+                <table class="table table-hover table-bordered">
 
                   <thead>
                     <tr>
-                      <th>no</th>
-                      <th>judul</th>
-                      <th>berita</th>
-                      <th>gambar</th>
+                      <th>No</th>
+                      <th>Judul</th>
+                      <th>Konten</th>
+                      <th>Gambar</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
 
                     <?php $no=0 ?>
-                    @foreach (App\Berita::all() as $pel)
+                    @foreach ($berita as $ber)
                     <?php $no++ ?>
                     <tr>
                       <td>{{ $no }}</td>
-                      <td>{{ $pel->title }}</td>
-                      <td>{{ $pel->content }}</td>
-                      <td>{{ $pel->gambar }}</td>
+                      <td>{{ $ber->title }}</td>
+                      <td>{{ $ber->content }}</td>
                       <td>
-                                  <a href="/Admin/order/edit/{{$pel->id}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>
-                                  <a href="/Admin/order/show/BAKBB/{{$pel->id}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Show</a>
-                                  <a href="/Admin/order/delete/{{$pel->id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                        <a href="{{ asset('images/'.$ber->gambar) }}" target="_blank">Lihat Gambar</a>
+                      </td>
+                      <td>
+                                  <a href="/admin/berita/edit/{{$ber->id}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>
+                                  <!-- <a href="/Admin/order/show/BAKBB/{{$ber->id}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Show</a> -->
+                                  <a href="/admin/berita/delete/{{$ber->id}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                       </td>
 
                       

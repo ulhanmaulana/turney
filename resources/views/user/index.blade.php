@@ -20,7 +20,7 @@
         <!--  -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
-        @foreach (App\Berita::all() as $pel)
+        @foreach ($berita as $pel)
         <a href="detailberita" class="link-dark">
           <div class="col">
             <div class="card h-100 border-warning">

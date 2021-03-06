@@ -14,13 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // --------------- user --------------------
-Route::get('/', function () {
-    return view('user/index');
-});
+// Route::get('/', function () {
+//     return view('user/index');
+// });
 
-Route::get('/test', function () {
-    return view('user/coba');
-});
+Route::get('/','UserController@index');
+
 
 // ======= admin ========
 Route::get('/admin', function () {
@@ -31,3 +30,8 @@ Route::get('/admin', function () {
 Route::get('/admin/berita/','AdminController@index');
 Route::get('/admin/berita/tambah','AdminController@create');
 Route::post('admin/berita/simpan', 'AdminController@store');
+Route::get('/admin/berita/edit/{id}','AdminController@edit');
+Route::post('/admin/berita/update/{id}','AdminController@update');
+Route::get('/admin/berita/delete/{id}', 'AdminController@destroy');
+
+
