@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// --------------- user --------------------
 Route::get('/', function () {
     return view('user/index');
 });
@@ -20,3 +21,13 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('user/coba');
 });
+
+// ======= admin ========
+Route::get('/admin', function () {
+    return view('admin/index');
+});
+
+
+Route::get('/admin/berita/','AdminController@index');
+Route::get('/admin/berita/tambah','AdminController@create');
+Route::post('admin/berita/simpan', 'AdminController@store');

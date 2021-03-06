@@ -546,6 +546,7 @@ h1, h2, h3, h4, h5, h6 {
   
   #hero p {
     width: 60%;
+    height: 120vh;
   }
   #hero .carousel-control-prev, #hero .carousel-control-next {
     width: 5%;
@@ -554,7 +555,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px), (max-height: 700px) {
   #hero {
-    height: 120vh;
+    height: 100vh;
 
     padding: 100px 0;
   }
@@ -562,7 +563,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
   }
 }
-@media (max-width: 375px), (max-height: 600px) {
+@media (max-width: 375px), (max-height: 500px) {
   #hero {
     height: 70vh;
     
@@ -1472,6 +1473,7 @@ section {
   /*background: linear-gradient(45deg, rgb(255, 247, 1, 0.6), rgb(251, 104, 1, 0.6), rgb(253, 170, 128, 0.6) );*/
   background:  rgb(253, 170, 128, 1);
 }
+
 
 .pricing .featured h3 {
   color: #fff;
