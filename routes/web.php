@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 // --------------- user --------------------
-// Route::get('/', function () {
-//     return view('user/index');
+// Route::get('/test', function () {
+//     return view('user/detailberita');
 // });
 
 Route::get('/','UserController@index');
-
+Route::get('/detailberita/{id}','UserController@detailberita');
+Route::get('/news','UserController@news');
 
 // ======= admin ========
 Route::get('/admin', function () {
@@ -34,4 +35,9 @@ Route::get('/admin/berita/edit/{id}','AdminController@edit');
 Route::post('/admin/berita/update/{id}','AdminController@update');
 Route::get('/admin/berita/delete/{id}', 'AdminController@destroy');
 
+
+Route::get('/admin/turnament/','AdminController@index_turnament');
+Route::get('/admin/turnament/tambah','AdminController@create_turnament');
+
+Route::get('/admin/turnament/edit','AdminController@edit_turnament');
 

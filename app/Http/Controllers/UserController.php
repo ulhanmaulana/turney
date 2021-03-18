@@ -17,7 +17,17 @@ class UserController extends Controller
         $berita = Berita::orderBy('id', 'desc')->take(3)->get();
         return view('user.index', compact('berita'));
     }
+    public function detailberita($id)
+    {
+        $berita = Berita::findOrFail($id);
+        return view('user.detailberita', compact('berita')); 
+    }
+    public function news()
+    {
 
+        $berita = Berita::latest()->get();
+        return view('user.news', compact('berita'));
+    }
     /**
      * Show the form for creating a new resource.
      *

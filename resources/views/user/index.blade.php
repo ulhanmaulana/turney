@@ -21,7 +21,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
 
         @foreach ($berita as $pel)
-        <a href="detailberita" class="link-dark">
+        <a href="/detailberita/{{ $pel->id }}" class="link-dark">
           <div class="col">
             <div class="card h-100 border-warning">
               <img src="images/{{ $pel->gambar }}" class="card-img-top" alt="..." height="200px">

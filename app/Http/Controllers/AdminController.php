@@ -12,34 +12,16 @@ use File;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
+    
     public function index()
     {
         $berita = Berita::latest()->get();
         return view('admin.berita.index', compact('berita'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.berita.tambah');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request){
         $validation = $request->validate([
         'file_gambar' => 'required|file|image|mimes:jpeg,png,gif,webp'
@@ -58,56 +40,12 @@ class AdminController extends Controller
             $beritaupload->save();
 
             return redirect('admin/berita')->with('success', 'Berhasil menambah berita!');
-
-
-        // if($request->hasFile('file_gambar')){
-        //     $resorce       = $request->file('file_gambar');
-        //     $name   = 'esport-'.time().'.'.$resorce->getClientOriginalName();
-        //     $resorce->move(\base_path() ."/public/images", $name);
-        //     $save = DB::table('beritas')->insert([
-        //         'title' => $request->judul_berita,
-        //         'content' => $request->isi_berita,
-        //         'gambar' => $name,
-        //         'created_at' => Carbon::now(),
-        //         'updated_at' => Carbon::now(),
-        //     ]);
-        //     return redirect('admin/berita');
-        // }else{
-        //     echo "Gagal upload gambar";
-        // }
     }
-    
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $berita = Berita::findOrFail($id);
         return view('admin.berita.edit', compact('berita'));    
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
 
@@ -128,13 +66,6 @@ class AdminController extends Controller
 
         return redirect('admin/berita')->with('success', 'Berhasil mengubah berita!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $hapus = Berita::findOrFail($id);
@@ -147,4 +78,22 @@ class AdminController extends Controller
         $hapus->delete();
         return redirect()->back()->with('success', 'Berhasil menghapus berita!');
      }
+
+     // =============================== controller for tournament =====================================
+
+     public function index_turnament()
+    {
+     
+        return view('admin.tournament.index');
+    }
+    public function create_turnament()
+    {
+        return view('admin.tournament.tambah');
+    }
+    public function edit_turnament()
+    {
+        return view('admin.tournament.edit');
+    }
+
+
 }

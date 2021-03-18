@@ -1,4 +1,4 @@
-@extends('admin.berita.appberita')
+@extends('layouts.layoutadmin')
 
 
 @section('content')

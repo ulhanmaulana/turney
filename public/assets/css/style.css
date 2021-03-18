@@ -479,6 +479,30 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
 }
+#hora {
+  width: 100%;
+  height: 20vh;
+  overflow: hidden;
+  position: relative;
+  /*background: url("../img/a.jpg") top center;*/
+  background-size: cover;
+  position: relative;
+  margin-bottom: -90px;
+  z-index: 99;
+  transition: 0.3s;
+
+}
+
+
+#hora:before {
+  content: "";
+  background: orange;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 
 #hero .carousel-container {
   display: flex;
