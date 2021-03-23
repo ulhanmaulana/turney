@@ -25,10 +25,14 @@
   <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-    
+  
+  <!-- css login -->
+  <link rel="stylesheet" type="text/css" href="{{ asset('login1/css/style.css') }}">
+  
 </head>
 
 <body>
@@ -82,7 +86,7 @@
     <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-newsletter">
+    <!-- <div class="footer-newsletter">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
@@ -96,9 +100,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="footer-top">
+    <!-- <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -150,7 +154,7 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container">
       <div class="copyright">
@@ -179,6 +183,7 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+  
 </body>
 
 </html>

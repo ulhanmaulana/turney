@@ -88,7 +88,12 @@
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Penyelenggara">
+                    <select class="form-select form-control" required="">
+                      <option selected>Sistem Turnament</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
                   </div>  
                 </div>
 

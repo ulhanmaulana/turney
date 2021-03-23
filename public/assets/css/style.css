@@ -2300,7 +2300,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #05579e;
+  background: linear-gradient(45deg, rgb(255, 247, 1, 1) ,rgb(251, 104, 1, 1) , rgb(253, 170, 128, 1));
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -2471,7 +2471,11 @@ section {
 }
 
 /*card*/
-.card:hover{
+.berita .card:hover{
      transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.container .card{
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06); 
 }

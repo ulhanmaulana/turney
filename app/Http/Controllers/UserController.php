@@ -12,6 +12,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function profile()
+    {
+        return view('user.profile');
+    }
     public function index()
     {
         $berita = Berita::orderBy('id', 'desc')->take(3)->get();

@@ -41,9 +41,9 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Judul</th>
-                      <th>Konten</th>
-                      <th>Gambar</th>
+                      <th>Nama Turnament</th>
+                      <th>Penyelenggara</th>
+                      <th>Waktu dan Tempat</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
