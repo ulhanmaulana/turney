@@ -61,9 +61,9 @@
         <ul>
           <li><a class="nav-link scrollto {{ request()->is('/*') ? 'active' : '' }}" href="/">Home</a></li>
           <li><a href="/news" class="{{ request()->is('news*') ? 'active' : '' }}">News</a></li>
-          <li class="dropdown"><a href="#"><span>Tournament</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#" class="{{ request()->is('turnament*') ? 'active' : '' }}"><span>Tournament</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Upcoming</a></li>
+              <li><a href="/turnament/upcoming">Upcoming</a></li>
               <li><a href="#">Finished</a></li>
             </ul>
           </li>        

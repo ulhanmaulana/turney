@@ -32,6 +32,10 @@ class UserController extends Controller
         $berita = Berita::latest()->get();
         return view('user.news', compact('berita'));
     }
+    public function upcoming()
+    {
+        return view('user.upcomingTurnamen');
+    }
     /**
      * Show the form for creating a new resource.
      *

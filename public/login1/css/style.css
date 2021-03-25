@@ -4404,7 +4404,7 @@ input[type="button"].btn-block {
     color: #212529;
     background-color: #e9ecef; }
 
-.list-group-item {
+/*.list-group-item {
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
@@ -4426,7 +4426,7 @@ input[type="button"].btn-block {
     z-index: 2;
     color: #fff;
     background-color: #007bff;
-    border-color: #007bff; }
+    border-color: #007bff; }*/
 
 .list-group-horizontal {
   -webkit-box-orient: horizontal;
