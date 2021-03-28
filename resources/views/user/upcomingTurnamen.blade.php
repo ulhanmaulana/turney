@@ -16,7 +16,7 @@
 
         <div class="row row-cols-1 row-cols-md-3 g-4" align="center">
 
-        	<a href="#" class="link-dark">
+        	<a href="/turnament/upcoming/detail" class="link-dark">
 				<div class="card" style="width: 18rem;" align="center">
 				  <img src="{{ asset('upcoming/coba.jpg') }}" class="card-img-top" alt="...">
 				  <div class="card-body">
@@ -30,7 +30,7 @@
 				</div>
 			</a>
 
-			<a href="#" class="link-dark">
+			<a href="/turnament/upcoming/detail" class="link-dark">
 				<div class="card" style="width: 18rem;" align="center">
 				  <img src="{{ asset('upcoming/coba.jpg') }}" class="card-img-top" alt="...">
 				  <div class="card-body">
@@ -44,7 +44,7 @@
 				</div>
 			</a>
 
-			<a href="#" class="link-dark">
+			<a href="/turnament/upcoming/detail" class="link-dark">
 				<div class="card" style="width: 18rem;" align="center">
 				  <img src="{{ asset('upcoming/coba.jpg') }}" class="card-img-top" alt="...">
 				  <div class="card-body">

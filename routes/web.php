@@ -25,6 +25,7 @@ Route::get('/','UserController@index');
 Route::get('/detailberita/{id}','UserController@detailberita');
 Route::get('/news','UserController@news');
 Route::get('/turnament/upcoming','UserController@upcoming');
+Route::get('/turnament/upcoming/detail','UserController@detailupcoming');
 
 // ======= admin ========
 Route::get('/admin', function () {

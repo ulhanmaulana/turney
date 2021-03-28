@@ -36,6 +36,10 @@ class UserController extends Controller
     {
         return view('user.upcomingTurnamen');
     }
+    public function detailupcoming()
+    {
+        return view('user.detailUpcoming');
+    }
     /**
      * Show the form for creating a new resource.
      *
