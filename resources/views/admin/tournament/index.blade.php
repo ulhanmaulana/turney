@@ -36,25 +36,41 @@
               </div>
               <div class="card-body">
                 
-                <table class="table table-hover table-bordered">
+              <table id="table_turnamen" class="table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nama Turnamen</th>
+                    <th>File Gambar</th>
+                    <th>Jumlah Pendaftar</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Turnament</th>
-                      <th>Penyelenggara</th>
-                      <th>Waktu dan Tempat</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-
-                  </tbody>  
+                <?php $no=1; ?>
+                @foreach($data as $dt)
+                <tr>
+                  <td>{{ $no++ }}</td>
+                  <td>{{ $dt->nama_turnamen }}</td>
+                  <td>
+                    <a href="{{ asset('images/tournament/'.$dt->file_gambar) }}" target="_blank">Lihat Gambar</a>
+                  </td>
+                  <td>{{ $dt->jml_peserta }} / {{ $dt->maksimum_slot}}</td>
                   
+                  <td>
+                              <a href="/admin/turnamen/edit/{{$dt->id_turnamen}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i> Edit</a>
+                              <!-- <a href="" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Show</a> -->
+                              <a href="/admin/turnamen/delete/{{$dt->id_turnamen}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
 
-                </table>
-                
+                  
+                </tr>
+                @endforeach
+
+                </tbody>  
+                 </table>
+                                
 
                 
               </div>
@@ -69,5 +85,10 @@
     </div>
     <!-- /.content -->
   
+<script>
 
+$('#table_turnamen').DataTable();
+
+
+</script>	
 @endsection

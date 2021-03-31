@@ -16,11 +16,11 @@
 
       	<div class="row row-cols-3 justify-cntent-center align-items-center mb-1">
       		<div class="col-lg-4 mx-auto">
-				<img src="{{ asset('upcoming/coba.jpg') }}" class="rounded" height="200vh" width="100%" >
+				<img src="{{ asset('images/tournament/'.$turnamen->file_gambar) }}" class="rounded" height="200vh" width="100%" >
 			</div>
 		</div>
 		<div align="center">
-			<h1 style="color: orange">Nama Turnament</h1>          	
+			<h1 style="color: orange">{{$turnamen->nama_turnamen}}</h1>          	
 		</div>
 		
 
@@ -48,18 +48,18 @@
 				  <div class="tab-pane fade show active" id="pills-deskripsi" role="tabpanel" aria-labelledby="pills-deskripsi-tab">
 				  	<table class="table table-borderless table-warning">
 					  	<tr>
-					  		<td>Biaya Pendaftaran</td>
-					  		<td>Slot</td>
+					  		<td>Biaya Pendaftaran : {{$turnamen->biaya_turnamen}}</td>
+					  		<td>Slot : {{$turnamen->jml_peserta}} dari {{$turnamen->maksimum_slot}} </td>
 					  	</tr>
 					  	<tr>
-					  		<td>Tempat</td>
-					  		<td>Sistem Turnament</td>
+					  		<td>Tempat : {{$turnamen->tempat}}</td>
+					  		<td>Sistem Turnament : {{$turnamen->sistem_turnamen}}</td>
 					  	</tr>
 					  	<tr>
-					  		<td colspan="2">Kategori</td>
+					  		<td colspan="2">Kategori : {{$turnamen->kategori}}</td>
 					  	</tr>
 					  	<tr style="border-top: solid 1px white" align="center">
-					  		<td><h2>HADIAH</h2></td>
+					  		<td><h2>HADIAH : {{$turnamen->hadiah}}</h2></td>
 					  		<td><a class="btn btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Daftar </a></td>
 					  	</tr>
 
@@ -67,7 +67,16 @@
 				  </div>
 
 				  <div class="tab-pane fade" id="pills-peraturan" role="tabpanel" aria-labelledby="pills-peraturan-tab">
-				  	
+				  	<div class="tab-content" id="pills-tabContent">
+				  	<div class="tab-pane fade show active" id="pills-deskripsi" role="tabpanel" aria-labelledby="pills-deskripsi-tab">
+					  <table class="table table-borderless table-warning">
+					  	<tr>
+					  		<td>{{$turnamen->peraturan}}</td>
+					  	</tr>
+						  </table>
+						  
+					</div>
+					</div>
 				  	
 				  </div>
 				  <div class="tab-pane fade" id="pills-peserta" role="tabpanel" aria-labelledby="pills-peserta-tab">...</div>
@@ -88,66 +97,126 @@
 		        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 		      </div>
 		      <div class="modal-body">
+			  <form action="{{url('/pendaftaran')}}" method="POST" enctype="multipart/form-data">
+			  {{ csrf_field() }}
 		        <div class="row">
                   <div class="form-group col-sm-5">
-                  	<input type="input" name="" class="form-control" required="" placeholder="Nama Tim">
+				  <input type="hidden" name="id_turnamen" value="{{$turnamen->id_turnamen}}">
+                  	<input type="input" name="nama_tim" class="form-control" required="" placeholder="Nama Tim">
                   </div>
                   <!-- <div class="form-group col-sm-7 ms-auto">
                   	Logo <input type="file" name="file_gambar" required="">
                   </div> -->
                   <div class="custom-file col-4">
-					  <input type="file" class="custom-file-input" id="customFile">
-					  <label class="custom-file-label" for="customFile">Logo</label>
-					</div>
-                </div>
-
-                <div class="row">
-                	<div class="col-sm-12">
-                		<input type="input" name="" class="form-control" placeholder="Data tambahan (optional)">
-                	</div>
-                </div><br>
-                <h4>Data Personil</h4>
-
-                <div class="row">
-                  <div class="form-group col-sm-5">
-                  	<input type="input" name="" class="form-control" required="" placeholder="Nama">
-                  </div>
-                  	<div class="custom-file col-4">
-					  <input type="file" class="custom-file-input" id="customFile">
-					  <label class="custom-file-label" for="customFile">Insert Foto</label>
-					</div>
-				</div>
-
-                <div class="row">
-                  <div class="form-group col-sm-5">
-                  	<input type="input" name="" class="form-control" required="" placeholder="Nick in Game">
-                  </div>
-                  <div class="custom-file col-4">
-					  <input type="file" class="custom-file-input" id="customFile">
-					  <label class="custom-file-label" for="customFile">Insert Additional</label>
+				  	  <label class="" for="">Logo</label>
+					  <input type="file" name="logo" class="" id="customFile">
+					  
 					</div>
                 </div>
 
                 <div class="row">
                 	<div class="col-sm-5">
-                		<input type="input" name="" class="form-control" required="" placeholder="ID in Game">
+                		<input type="email" name="email" class="form-control" placeholder="Email">
                 	</div>
-                </div>
+                </div><br>
+                <h4>Data Personil</h4>
+				<table width="100%" class="table-common">
+					<tr>
+						<td>
+						<div class="row">
+						<div class="form-group col-sm-5">
+							<input type="input" name="nama[0]" class="form-control" required="" placeholder="Nama">
+						</div>
+						<div class="custom-file col-4">
+							<input type="file" name="foto[0]" class="" id="customFile" value="">
+						</div>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<div class="row">
+						<div class="form-group col-sm-5">
+							<input type="input" name="nickname[0]" class="form-control" required="" placeholder="Nick in Game">
+						</div>
+						<div class="form-group col-sm-4">
+							<input type="file" name="additional[0]" class="custom-file-input" id="customFile">
+							<label class="custom-file-label" for="customFile">Additional</label>
+							</div>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<div class="row">
+							<div class="col-sm-5">
+							<input type="input" name="idgame[0]" class="form-control" required="" placeholder="ID in Game">
+							</div>
+						</div>
+						</td>
+					</tr>
+				</table>
+               
                 <div align="center">
-                	<button class="btn btn-outline-warning"><i class="fas fa-plus-square"></i></button>	
+                	<button onclick="tambah()" class="btn btn-outline-warning"><i class="fas fa-plus-square"></i></button>	
                 </div>
                 
-                
+              
 
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-warning">Submit</button>
+				<input type="submit" class="btn btn-warning" value="Submit">
 		      </div>
 		    </div>
 		  </div>
+		  </form>
 		</div>
 
 
+<script>
+var i=0;
+function tambah(){
+	i=i+1;
+	//window.alert(i);
+
+  var out='<br><tr>'+
+			'<td>'+
+			'<div class="row">'+
+			'<div class="form-group col-sm-5">'+
+				'<input type="input" name="nama['+i+']" class="form-control" required="" placeholder="Nama">'+
+			'</div>'+
+			'<div class="custom-file col-4">'+
+				'<input type="file" name="foto['+i+']" class="custom-file-input" id="customFile" value="no">'+
+				'<label class="custom-file-label" for="customFile">Insert Foto</label>'+
+			'</div>'+
+			'</div>'+
+			'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td>'+
+			'<div class="row">'+
+			'<div class="form-group col-sm-5">'+
+				'<input type="input" name="nickname['+i+']" class="form-control" required="" placeholder="Nick in Game">'+
+			'</div>'+
+			'<div class="custom-file col-4">'+
+				'<input type="file" name="additional['+i+']" class="custom-file-input" id="customFile">'+
+				'<label class="custom-file-label" for="customFile">Additional</label>'+
+				'</div>'+
+			'</div>'+
+			'</td>'+
+		'</tr>'+
+		'<tr>'+
+			'<td>'+
+			'<div class="row">'+
+				'<div class="col-sm-5">'+
+					'<input type="input" name="idgame['+i+']" class="form-control" required="" placeholder="ID in Game">'+
+				'</div>'+
+			'</div>'+
+			'</td>'+
+		'</tr>';
+$(".table-common").append(out).children(':last');
+}
+</script>
 
 @endsection

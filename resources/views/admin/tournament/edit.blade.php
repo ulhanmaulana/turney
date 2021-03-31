@@ -37,17 +37,18 @@
               <div class="card-body">
 
                
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="{{url('admin/turnamen/update/')}}" method="POST" enctype="multipart/form-data">
         				{{ csrf_field() }}
                  
                 <div class="row">
                   <div class="form-group col-md-6">
-                  <input type="input" name="" class="form-control" required="" placeholder="Nama Turnament">
+                   <input type="hidden" name="id_turnamen" class="form-control" required="required" placeholder="Nama Turnament" value="{{$data->id_turnamen}}">
+                  <input type="input" name="nama_turnamen" class="form-control" required="required" placeholder="Nama Turnament" value="{{$data->nama_turnamen}}">
                   </div>
 
                   <div class="form-group col-md-6">
                   File Gambar
-                  <input type="file" name="file_gambar" required="">
+                  <input type="file" name="file_gambar" >
                   </div>
                 </div><br>
                 
@@ -55,41 +56,51 @@
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Biaya Turnament">
+                    <input type="input" name="biaya_turnamen" class="form-control" required="required" placeholder="Biaya Turnament" value="{{$data->biaya_turnamen}}">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Deskripsi Singkat">
+                    <input type="input" name="deskripsi" class="form-control" required="" placeholder="Deskripsi Singkat" value="{{$data->deskripsi}}">
                   </div>  
                 </div>
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Kategori">
+                 
+                  <select name="kategori" id="kategori" class="form-control">
+                        <option value="SMP"  @php if($data->kategori=='SMP') echo "selected"; @endphp>SMP</option>
+                        <option value="SMA"  @php if($data->kategori=='SMA') echo "selected"; @endphp> SMA</option>
+                        <option value="UMUM"  @php if($data->kategori=='UMUM') echo "selected"; @endphp>UMUM</option>
+                      </select>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Hadiah">
+                    <input type="input" name="hadiah" class="form-control" required="" placeholder="Hadiah" value="{{$data->hadiah}}">
                   </div>  
                 </div>
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Maksimum Slot">
+                    <input type="input" name="maksimum_slot" class="form-control" required="" placeholder="Maksimum Slot" value="{{$data->maksimum_slot}}">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Penyelenggara">
+                    <input type="input" name="penyelenggara" class="form-control" required="" placeholder="Penyelenggara" value="{{$data->penyelenggara}}"> 
                   </div>  
                 </div>
-
+                
                 <div class="row">
-                  <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Waktu dan Tempat">
+                    <div class="form-group col-md-6"><input type="text" name="tempat" class="form-control" required="" placeholder="Tempat" value="{{$data->tempat}}"></div>
+                    <div class="form-group col-md-6"> <input type="datetime-local" name="waktu" class="form-control" required="" placeholder="waktu" value="{{date('Y-m-d\Th:m', strtotime($data->waktu))}}"></div>
                   </div>
-
+                  <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Penyelenggara">
+                  <select name="sistem_turnamen" class="form-select form-control" required="">
+                      <option selected>Sistem Turnament</option>
+                      <option value="1"  @php if($data->sistem_turnamen=='1') echo "selected"; @endphp>One</option>
+                      <option value="2" @php if($data->sistem_turnamen=='2') echo "selected"; @endphp>Two</option>
+                      <option value="3" @php if($data->sistem_turnamen=='3') echo "selected"; @endphp>Three</option>
+                    </select>
                   </div>  
                 </div>
 
@@ -97,7 +108,7 @@
                 <h3>Peraturan</h3>
 
                 <div class="form-group">
-                <textarea class="form-control" name="" required="" placeholder="Input Peraturan" style="height: 200px"></textarea>
+                <textarea class="form-control" name="peraturan" required="" placeholder="Input Peraturan" style="height: 200px" value="">{{$data->peraturan}}</textarea>
                 </div>
 
                 <div class="float-sm-right">

@@ -36,12 +36,12 @@
               </div>
               <div class="card-body">
                 
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="{{url('admin/turnamen/simpan')}}" method="POST" enctype="multipart/form-data">
         				{{ csrf_field() }}
         				 
                 <div class="row">
                   <div class="form-group col-md-6">
-                  <input type="input" name="" class="form-control" required="" placeholder="Nama Turnament">
+                  <input type="input" name="nama_turnamen" class="form-control" required="" placeholder="Nama Turnament">
                   </div>
 
                   <div class="form-group col-md-6">
@@ -54,45 +54,50 @@
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Biaya Turnament">
+                    <input type="input" name="biaya_turnamen" class="form-control" required="" placeholder="Biaya Turnament">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Deskripsi Singkat">
+                    <input type="input" name="deskripsi" class="form-control" required="" placeholder="Deskripsi Singkat">
                   </div>  
                 </div>
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Kategori">
+                      <select name="kategori" id="kategori" class="form-control">
+                        <option value="">Pilih Kategori</option>
+                        <option value="SMP">SMP</option>
+                        <option value="SMA">SMA</option>
+                        <option value="UMUM">UMUM</option>
+                      </select>
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Hadiah">
+                    <input type="input" name="hadiah" class="form-control" required="" placeholder="Hadiah">
                   </div>  
                 </div>
 
                 <div class="row">
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Maksimum Slot">
+                    <input type="input" name="maksimum_slot" class="form-control" required="" placeholder="Maksimum Slot">
                   </div>
 
                   <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Penyelenggara">
+                    <input type="input" name="penyelenggara" class="form-control" required="" placeholder="Penyelenggara">
                   </div>  
                 </div>
 
                 <div class="row">
-                  <div class="form-group col-md-6">
-                    <input type="input" name="" class="form-control" required="" placeholder="Waktu dan Tempat">
+                    <div class="form-group col-md-6"><input type="text" name="tempat" class="form-control" required="" placeholder="Tempat" value=""></div>
+                    <div class="form-group col-md-6"> <input type="datetime-local" name="waktu" class="form-control" required="" placeholder="waktu" value=""></div>
                   </div>
-
+                  <div class="row">
                   <div class="form-group col-md-6">
-                    <select class="form-select form-control" required="">
+                  <select name="sistem_turnamen" class="form-select form-control" required="">
                       <option selected>Sistem Turnament</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="1" >One</option>
+                      <option value="2" >Two</option>
+                      <option value="3" >Three</option>
                     </select>
                   </div>  
                 </div>
@@ -101,7 +106,7 @@
         				<h3>Peraturan</h3>
 
                 <div class="form-group">
-                <textarea class="form-control" name="" required="" placeholder="Input Peraturan" style="height: 200px"></textarea>
+                <textarea class="form-control" name="peraturan" required="" placeholder="Input Peraturan" style="height: 200px"></textarea>
                 </div>
 
                 <div class="float-sm-right">

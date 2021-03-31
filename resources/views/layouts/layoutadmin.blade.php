@@ -13,6 +13,13 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css') }}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 </head>
 <!--
 `body` tag options:
@@ -74,10 +81,34 @@
           </li>
 
           <li class="nav-item">
-            <a href="/admin/turnament/" class="nav-link {{ request()->is('admin/turnament*') ? 'active' : '' }}">
+            <a href="/admin/turnamen/" class="nav-link {{ request()->is('admin/turnamen*') ? 'active' : '' }}">
               <i class="far fa-circle nav-icon"></i>
               <p>
                 Tournament
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/pendaftaran/" class="nav-link {{ request()->is('admin/pendaftaran*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Registration
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/pembayaran/" class="nav-link {{ request()->is('admin/pembayaran*') ? 'active' : '' }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Payment
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Logout
               </p>
             </a>
           </li>
