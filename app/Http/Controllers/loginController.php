@@ -10,7 +10,7 @@ use Hash;
 use DB;
 use Illuminate\Support\Facades\Session;
 
-class loginController extends Controller
+class LoginController extends Controller
 {
     public function index()
     {
@@ -51,7 +51,7 @@ class loginController extends Controller
             }elseif(Auth::user()->level_user === 3){
                 $tim=DB::table('t_tim')->where('id_user', '=', Auth::user()->id_user)->first();
                 Session::put('id_tim',$tim->id_tim);
-                return redirect('/profile');
+                return redirect('/peserta/profile');
             }
             else{
                 return redirect('/login');

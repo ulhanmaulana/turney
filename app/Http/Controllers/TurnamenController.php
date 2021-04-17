@@ -112,7 +112,14 @@ class TurnamenController extends Controller
          ->groupBy('t_turnamen.id_turnamen','t_pendaftaran.id_turnamen')
          ->first();
          //dd($turnamen);
-         return view('user.detailUpcoming', ['turnamen'=> $turnamen]);
+         $peserta=DB::table('t_pendaftaran')
+         ->select('t_tim.*')
+         ->join('t_tim', 't_tim.id_tim', '=', 't_pendaftaran.id_tim')
+         ->where('t_pendaftaran.id_turnamen', '=', $id)
+         ->where('t_pendaftaran.status_pendaftaran', '=', 'Berhasil')
+         ->get();
+         //dd($peserta);
+         return view('user.detailUpcoming', ['turnamen'=> $turnamen, 'peserta'=>$peserta]);
 
      }
 }

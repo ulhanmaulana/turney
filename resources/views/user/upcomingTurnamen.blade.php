@@ -6,11 +6,9 @@
   </section><!-- End Hero -->
 
 @section('content')
-
 <section class="upcoming">
 	<div class="container">
-
-		<div class="section-title">
+		<div class="section-title" style="margin-top:-70px">
           <h2>UPCOMING</h2>          
         </div>
 
@@ -18,12 +16,11 @@
 		@foreach($data as $dt)
 		<a href="/turnament/upcoming/detail/{{$dt->id_turnamen}}" class="link-dark">
 				<div class="card" style="width: 18rem;" align="center">
-				  <img src="{{ asset('images/tournament/'.$dt->file_gambar) }}" class="card-img-top" alt="...">
+				  <img src="{{ asset('images/tournament/'.$dt->file_gambar) }}" style="height:300px" class="card-img-top" alt="...">
 				  <div class="card-body">
 				    <h5 class="card-title">{{$dt->nama_turnamen}}</h5>
 				  </div>
 				  <ul class="list-group list-group-flush">
-				    <li class="list-group-item">Nama Game</li>
 				    <li class="list-group-item">{{$dt->kategori}}</li>
 				    <li class="list-group-item">{{$dt->tempat}}</li>
 				  </ul>	  

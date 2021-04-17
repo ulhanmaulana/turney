@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login','loginController@index');
+Route::get('/login','LoginController@index');
 Route::post('/login/proses','LoginController@proses');
 Route::get('/logout', 'LoginController@logout');
-Route::post('/pendaftaran', 'UserController@pendaftaran');
-Route::post('/pembayaran', 'UserController@pembayaran');
+Route::post('/pendaftaran', 'PendaftaranController@pendaftaran');
+Route::post('/checkemaileksist', 'PendaftaranController@checkEmailEksist');
+
 
 
 // --------------- user --------------------
@@ -67,6 +68,10 @@ Route::group(['middleware' => 'admin'], function () {
 
 });
 Route::group(['middleware' => 'peserta'], function () {
-    Route::get('/profile','UserController@profile');
+    Route::get('/peserta/profile','PesertaController@peserta_profile');
+    Route::get('/peserta/pembayaran','PembayaranController@pembayaran_peserta');
+    Route::post('/peserta/pembayaran', 'PembayaranController@pembayaran');
+    Route::get('/peserta/setting', 'AkunController@setting_peserta');
+    Route::post('/peserta/setting/simpan', 'AkunController@change_pass');
 
 });
